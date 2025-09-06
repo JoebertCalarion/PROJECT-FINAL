@@ -1,0 +1,28 @@
+:root{
+  --ctu-red:#b71c1c;
+  --ctu-gold:#f0a500;
+  --bg:#f7f9fb;
+  --muted:#666;
+  --card:#fff;
+  --accent:#0b5ed7;
+  --maxwidth:820px;
+}
+
+*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+body{margin:0;background:linear-gradient(180deg, var(--bg), #eef3fb); color:#222; display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px;}
+
+.container{width:100%;max-width:var(--maxwidth);}
+
+.brand{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+.logo{width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;padding:6px;box-shadow:0 4px 10px rgba(14,28,50,0.06);}
+.brand h1{font-size:20px;margin:0;color:var(--ctu-red);}
+
+.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(12,24,60,0.08);}
+
+.row{display:flex;gap:12px;margin-bottom:12px;}
+.row input{flex:1;padding:10px;border-radius:8px;border:1px solid #e3e7ee;}
+input, select{width:100%;padding:10px;border-radius:8px;border:1px solid #e3e7ee;font-size:14px;}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;border:0;font-weight:600;cursor:pointer;}
+.btn.primary{background:linear-gradient(90deg,var(--ctu-red),#a31616);color:#fff;box-shadow:0 6px 18px rgba(179,28,28,0.18);}
+.muted{color:var(--muted);font-size:13px;margin-top:12px;}
+.msg{margin-top:12px;font-weight:600;}
