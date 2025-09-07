@@ -1,28 +1,162 @@
-:root{
-  --ctu-red:#b71c1c;
-  --ctu-gold:#f0a500;
-  --bg:#f7f9fb;
-  --muted:#666;
-  --card:#fff;
-  --accent:#0b5ed7;
-  --maxwidth:820px;
+/* CTU Bantayan Professional Theme - Golden Yellow + Maroon */
+:root {
+  --golden-yellow: #FFB81C;
+  --maroon: #800000;
+  --white: #FFFFFF;
+  --light-gray: #F7F7F7;
+  --dark-gray: #333333;
 }
 
-*{box-sizing:border-box;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
-body{margin:0;background:linear-gradient(180deg, var(--bg), #eef3fb); color:#222; display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px;}
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
-.container{width:100%;max-width:var(--maxwidth);}
+body {
+  background: linear-gradient(135deg, var(--golden-yellow), var(--maroon));
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Card Container */
+.container {
+  background: linear-gradient(180deg, var(--white), #fff9e6);
+  padding: 35px 40px;   /* slightly reduced for natural spacing */
+  border-radius: 16px;
+  width: 420px;
+  max-width: 95%;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.7s ease-in-out;
+  text-align: center;
+  border: 3px solid var(--maroon);
+  position: relative;
+}
 
-.brand{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
-.logo{width:64px;height:64px;object-fit:contain;border-radius:8px;background:#fff;padding:6px;box-shadow:0 4px 10px rgba(14,28,50,0.06);}
-.brand h1{font-size:20px;margin:0;color:var(--ctu-red);}
+/* Decorative top border */
+.container::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 6px;
+  background: var(--golden-yellow);
+  border-radius: 6px;
+}
 
-.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(12,24,60,0.08);}
+/* Branding */
+.container img.logo {
+  width: 85px;
+  margin-bottom: 18px;
+}
+.container h2 {
+  color: var(--maroon);
+  margin-bottom: 24px; /* slightly reduced spacing below heading */
+  font-size: 1.9rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 
-.row{display:flex;gap:12px;margin-bottom:12px;}
-.row input{flex:1;padding:10px;border-radius:8px;border:1px solid #e3e7ee;}
-input, select{width:100%;padding:10px;border-radius:8px;border:1px solid #e3e7ee;font-size:14px;}
-.btn{display:inline-block;padding:10px 16px;border-radius:8px;border:0;font-weight:600;cursor:pointer;}
-.btn.primary{background:linear-gradient(90deg,var(--ctu-red),#a31616);color:#fff;box-shadow:0 6px 18px rgba(179,28,28,0.18);}
-.muted{color:var(--muted);font-size:13px;margin-top:12px;}
-.msg{margin-top:12px;font-weight:600;}
+/* Form Fields */
+.form-group {
+  margin-bottom: 16px;  /* balanced spacing between inputs */
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;   /* label sits nicely above input */
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+.container input,
+.container select {
+  width: 100%;
+  max-width: 280px;    /* natural width */
+  padding: 12px 14px;  /* comfortable height */
+  font-size: 1rem;     /* readable */
+  border: 2px solid #ccc;
+  border-radius: 8px;  /* subtle roundness */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #fdfdfd;
+  box-sizing: border-box;
+  margin-bottom: 15px; /* add spacing between input boxes */
+}
+
+/* Focus Effect */
+.container input:focus,
+.container select:focus {
+  border-color: var(--golden-yellow);
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 184, 28, 0.5);
+}
+
+/* Modern Buttons */
+.btn {
+  width: 100%;
+  max-width: 280px;   /* match input width */
+  padding: 14px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--maroon), #5a0000);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(128, 0, 0, 0.3);
+  margin-top: 12px;   /* spacing above button */
+}
+.btn:hover {
+  background: linear-gradient(135deg, #5a0000, var(--maroon));
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(128, 0, 0, 0.4);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(128, 0, 0, 0.2);
+}
+
+
+/* Helper Text */
+.muted {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+}
+.muted a {
+  color: var(--maroon);
+  text-decoration: none;
+  font-weight: bold;
+}
+.muted a:hover {
+  text-decoration: underline;
+}
+.otp-info {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Message Text */
+.msg {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

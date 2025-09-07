@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CTU E-Clinic — Admin Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="brand">
+      <img src="ctu_logo.png" alt="CTU Logo" class="logo">
+      <h1>Welcome to CTU E-Clinic — Admin Dashboard</h1>
+    </header>
+
+    <section class="card">
+      <h2>Admin Controls</h2>
+      <ul>
+        <li><a href="#">📊 Dashboard</a></li>
+        <li><a href="#">📅 Manage Appointments</a></li>
+        <li><a href="#">📖 Student Medical Records</a></li>
+        <li><a href="#">📑 Reports</a></li>
+        <li><a href="#">🗄️ Archived</a></li>
+        <li><a href="admin-login.html" onclick="logout()">🚪 Logout</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    function logout() {
+      fetch('/logout', { method: 'POST' }).then(() => {
+        window.location.href = 'admin-login.html';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -22,7 +22,9 @@ async function postJSON(url, payload) {
 document.addEventListener('DOMContentLoaded', () => {
   const registerForm = document.getElementById('registerForm');
   const loginForm = document.getElementById('loginForm');
+  const verifyOtpForm = document.getElementById('otpForm'); // ✅ for verify.html
 
+  // ✅ Registration handler
   if (registerForm) {
     registerForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -56,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const res = await postJSON('/api/register', payload);
       if (res.success) {
         msgEl.style.color = 'green';
-        msgEl.textContent = res.message || 'Registration successful.';
-        setTimeout(() => window.location.href = 'login.html', 900);
+        msgEl.textContent = res.message || 'Registration successful. Please verify your email.';
+        setTimeout(() => window.location.href = 'verify.html', 1200);
       } else {
         msgEl.style.color = 'crimson';
         msgEl.textContent = res.message || 'Registration failed.';
@@ -65,6 +67,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ✅ OTP Verification handler
+  if (verifyOtpForm) {
+    verifyOtpForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msgEl = document.getElementById('msg');
+      msgEl.style.color = 'crimson';
+
+      const email = document.getElementById('email').value.trim();
+      const otp = document.getElementById('otp').value.trim();
+
+      if (!email || !otp) {
+        msgEl.textContent = 'Please enter email and OTP.';
+        return;
+      }
+
+      msgEl.style.color = 'black';
+      msgEl.textContent = 'Verifying...';
+
+      const res = await postJSON('/api/verify-otp', { email, otp });
+      if (res.success) {
+        msgEl.style.color = 'green';
+        msgEl.textContent = res.message || 'Verification successful.';
+        setTimeout(() => window.location.href = 'login.html', 1000);
+      } else {
+        msgEl.style.color = 'crimson';
+        msgEl.textContent = res.message || 'Verification failed.';
+      }
+    });
+  }
+
+  // ✅ Login handler
   if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -73,10 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const email = document.getElementById('loginEmail').value.trim();
       const password = document.getElementById('loginPassword').value;
-      const role = document.getElementById('role').value;
+      const role = document.getElementById('role').value || 'student';
 
-      if (!email || !password || !role) {
-        msgEl.textContent = 'Please enter email, password and select role.';
+      if (!email || !password) {
+        msgEl.textContent = 'Please enter email and password.';
         return;
       }
 
@@ -86,11 +119,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const res = await postJSON('/api/login', { email, password, role });
       if (res.success) {
         msgEl.style.color = 'green';
-        msgEl.textContent = 'Login successful!';
+        msgEl.textContent = 'Login successful! Redirecting...';
         setTimeout(() => {
-          if (res.user && res.user.role === 'admin') window.location.href = 'admin-dashboard.html';
-          else window.location.href = 'student-dashboard.html';
-        }, 600);
+          if (res.user && res.user.role === 'admin') {
+            window.location.href = 'admin-dashboard.html';
+          } else {
+            window.location.href = 'student-dashboard.html';
+          }
+        }, 800);
       } else {
         msgEl.style.color = 'crimson';
         msgEl.textContent = res.message || 'Login failed.';
