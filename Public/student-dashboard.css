@@ -1,0 +1,176 @@
+/* ==========================
+   CTU Bantayan Professional Theme
+   Colors: Golden Yellow (#FFB81C), Maroon (#800000)
+   ========================== */
+
+:root {
+  --golden-yellow: #FFB81C;
+  --maroon: #800000;
+  --white: #FFFFFF;
+  --light-gray: #F7F7F7;
+  --dark-gray: #333333;
+  --card-bg: #fff4e0;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --hover-bg: #ffdb70;
+}
+
+/* ==========================
+   Global Reset
+   ========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+/* ==========================
+   Container
+   ========================== */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ==========================
+   Sidebar
+   ========================== */
+.sidebar {
+  width: 250px;
+  background-color: var(--maroon);
+  color: var(--white);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar .logo {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.sidebar p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.nav-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  text-align: center;
+  background-color: var(--golden-yellow);
+  color: var(--maroon);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+  background-color: #e6a800;
+  color: var(--white);
+}
+
+.logout-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 10px;
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #cc0000;
+}
+
+/* ==========================
+   Main Content
+   ========================== */
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+.main-content h3 {
+  color: var(--maroon);
+  margin-bottom: 20px;
+}
+
+/* ==========================
+   Appointment Form
+   ========================== */
+#appointmentForm {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#appointmentForm label {
+  font-weight: bold;
+  color: var(--maroon);
+}
+
+#appointmentForm input,
+#appointmentForm textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+}
+
+#appointmentForm textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+#appointmentForm button {
+  width: 150px;
+  padding: 10px;
+  background-color: var(--golden-yellow);
+  color: var(--maroon);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  align-self: flex-start;
+}
+
+#appointmentForm button:hover {
+  background-color: #e6a800;
+  color: var(--white);
+}
+
+/* ==========================
+   Confirmation Section
+   ========================== */
+#confirmationSection {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px var(--card-shadow);
+}
+

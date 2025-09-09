@@ -23,7 +23,23 @@
       </div>
       <div class="row">
         <input id="schoolyear" name="schoolyear" placeholder="School year (e.g. 2024-2025)" />
-        <input id="course" name="course" placeholder="Course" />
+          <!-- School Level dropdown -->
+       <select id="schoollevel" name="schoollevel" required>
+       <option value="" disabled selected>Select Year Level</option>
+           <option value="1st Year">1st Year</option>
+           <option value="2nd Year">2nd Year</option>
+           <option value="3rd Year">3rd Year</option>
+           <option value="4th Year">4th Year</option>
+        </select>
+        <!-- Course dropdown -->
+        <select id="course" name="course" required>
+          <option value="" disabled selected>Select Course</option>
+          <option value="BSHM">BSHM</option>
+          <option value="BSIT">BSIT</option>
+          <option value="BTLED">BTLED</option>
+          <option value="BSIE">BSIE</option>
+          <option value="FISHERIES">FISHERIES</option>
+        </select>
       </div>
       <div class="row">
         <input id="email" name="email" type="email" placeholder="Email" required />

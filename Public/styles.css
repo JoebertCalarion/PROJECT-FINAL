@@ -1,4 +1,4 @@
-/* CTU Bantayan Professional Theme - Golden Yellow + Maroon */
+
 :root {
   --golden-yellow: #FFB81C;
   --maroon: #800000;
@@ -159,4 +159,61 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Forgot Password Page Styling */
+.container {
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.brand .logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  margin-top: 15px;
+}
+
+.card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.btn.primary {
+  width: 100%;
+  background: #00695c;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn.primary:hover {
+  background: #004d40;
+}
+
+.msg {
+  margin-top: 10px;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+.muted {
+  color: #777;
+  font-size: 13px;
 }

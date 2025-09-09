@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CTU E-Clinic — Forgot Password</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="brand">
+      <img src="ctu_logo.png" alt="CTU Logo" class="logo">
+      <h1>Forgot Password</h1>
+    </header>
+
+    <!-- Step 1: Request OTP -->
+   <form id="forgotForm" class="card">
+      <input id="forgotEmail" type="email" placeholder="Enter your email" required />
+      <button type="submit" class="btn primary">Send OTP</button>
+      <div id="forgotMsg" class="msg"></div>
+    </form>
+
+    <!-- Step 2: Enter OTP + New Password -->
+    <form id="resetForm" class="card" style="display:none;">
+      <input id="otp" type="text" placeholder="Enter OTP" required />
+      <input id="newPassword" type="password" placeholder="Enter new password" required />
+      <button type="submit" class="btn primary">Reset Password</button>
+      <div id="resetMsg" class="msg"></div>
+    </form>
+  </main>
+
+  <script src="auth.js"></script>
+</body>
+</html>

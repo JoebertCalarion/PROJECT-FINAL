@@ -1,0 +1,221 @@
+/* ==========================
+   CTU Bantayan Professional Theme
+   Colors: Golden Yellow (#FFB81C), Maroon (#800000)
+   ========================== */
+
+:root {
+  --golden-yellow: #FFB81C;
+  --maroon: #800000;
+  --white: #FFFFFF;
+  --light-gray: #F7F7F7;
+  --dark-gray: #333333;
+  --card-bg: #fff4e0;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --hover-bg: #ffdb70;
+}
+
+/* ==========================
+   Global Reset
+   ========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+/* ==========================
+   Container
+   ========================== */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ==========================
+   Sidebar
+   ========================== */
+.sidebar {
+  width: 250px;
+  background-color: var(--maroon);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.sidebar-header h2 {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.settings-btn,
+.menu-toggle {
+  background: var(--golden-yellow);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--maroon);
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none; /* can enable for mobile later */
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.logout-btn:hover {
+  background-color: var(--golden-yellow);
+  color: var(--maroon);
+}
+
+/* ==========================
+   Main Content
+   ========================== */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background-color: var(--light-gray);
+}
+
+.main-content h2 {
+  color: var(--maroon);
+  margin-bottom: 20px;
+}
+
+/* ==========================
+   Cards
+   ========================== */
+.card-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  flex: 1;
+  min-width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px var(--card-shadow);
+  text-align: center;
+  font-size: 16px;
+}
+
+.card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 24px;
+  color: var(--maroon);
+}
+
+/* ==========================
+   Table
+   ========================== */
+.table-container {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px var(--card-shadow);
+}
+
+.table-container h3 {
+  margin-bottom: 15px;
+  color: var(--maroon);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  background-color: var(--maroon);
+  color: var(--white);
+  padding: 10px;
+  text-align: left;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* ==========================
+   Buttons
+   ========================== */
+button {
+  background-color: var(--golden-yellow);
+  color: var(--maroon);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #e6a800;
+  color: var(--white);
+}
+
+/* ==========================
+   QR Code Section
+   ========================== */
+#qr-reader {
+  border: 2px solid var(--maroon);
+  border-radius: 10px;
+}
+
+/* ==========================
+   Responsive
+   ========================== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  .sidebar-nav {
+    display: flex;
+    gap: 10px;
+  }
+  .card-row {
+    flex-direction: column;
+  }
+}

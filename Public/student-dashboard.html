@@ -1,33 +1,60 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Student Dashboard</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Book Appointment - CTU E-Clinic</title>
+  <link rel="stylesheet" href="student-dashboard.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
-  <main class="container">
-    <header class="brand">
-      <img src="ctu_logo.png" alt="CTU Logo" class="logo">
-      <h1>Welcome to the CTU E-Clinic — Student Dashboard</h1>
-    </header>
+  <div class="container">
+    <aside class="sidebar">
+      <img src="logo.png" alt="CTU Logo" class="logo" />
+      <h2>CTU BANTAYAN E-CLINIC</h2>
+      <p>Welcome, Student!</p>
+      <a href="book appointment.html" class="nav-btn">Book Appointment</a>
+      <a href="my-appointment.html" class="nav-btn active">My Appointment</a>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </aside>
 
-    <section class="card">
-      <h2>My Options</h2>
-      <ul>
-        <li><a href="#">📅 Book Appointment</a></li>
-        <li><a href="#">📋 My Appointments</a></li>
-        <li><a href="#" onclick="logout()">🚪 Logout</a></li>
-      </ul>
-    </section>
-  </main>
+    <main class="main-content">
+      <h3>Book Appointment</h3>
 
-  <script>
-    function logout() {
-      fetch('/logout', { method: 'POST' }).then(() => {
-        window.location.href = 'login.html';
-      });
-    }
-  </script>
+      <!-- Appointment Form -->
+      <div id="appointmentForm">
+        <label>Date:</label>
+        <input type="date" id="date" required>
+
+        <label>Time:</label>
+        <input type="time" id="time" required>
+
+        <label>Reason for Visit:</label>
+        <textarea id="reason" placeholder="Enter reason..." required></textarea>
+
+        <button onclick="submitAppointment()">Book Appointment</button>
+      </div>
+
+      <!-- Confirmation Section -->
+      <div id="confirmationSection" style="display:none; margin-top: 20px;">
+        <h3>Appointment Details</h3>
+        <p><strong>Date:</strong> <span id="apptDate"></span></p>
+        <p><strong>Time:</strong> <span id="apptTime"></span></p>
+        <p><strong>Reason for visit:</strong> <span id="apptReason"></span></p>
+
+        <p style="margin-top: 15px; font-weight: bold; color: red;">
+          Please screenshot this QR code. Present it at the clinic for verification.
+        </p>
+
+        <div id="qrcode" style="margin: 20px auto; width: 200px;"></div>
+
+        <div class="button-group">
+          <button onclick="reschedule()">Reschedule Appointment</button>
+          <button onclick="cancelAppt()">Cancel Appointment</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="student.js"></script>
 </body>
 </html>

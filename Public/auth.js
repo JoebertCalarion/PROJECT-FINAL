@@ -22,7 +22,9 @@ async function postJSON(url, payload) {
 document.addEventListener('DOMContentLoaded', () => {
   const registerForm = document.getElementById('registerForm');
   const loginForm = document.getElementById('loginForm');
-  const verifyOtpForm = document.getElementById('otpForm'); // ✅ for verify.html
+  const verifyOtpForm = document.getElementById('otpForm'); // for verify.html
+  const forgotForm = document.getElementById("forgotForm");
+  const resetForm = document.getElementById("resetForm");
 
   // ✅ Registration handler
   if (registerForm) {
@@ -130,6 +132,67 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         msgEl.style.color = 'crimson';
         msgEl.textContent = res.message || 'Login failed.';
+      }
+    });
+  }
+
+  // ✅ Forgot Password handler
+  if (forgotForm) {
+    forgotForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("forgotEmail").value.trim();
+      const msgEl = document.getElementById("forgotMsg");
+
+      if (!email) {
+        msgEl.textContent = "Please enter your email.";
+        msgEl.style.color = "crimson";
+        return;
+      }
+
+      msgEl.textContent = "Sending OTP...";
+      msgEl.style.color = "black";
+
+      const res = await postJSON("/api/forgot-password", { email });
+
+      if (res.success) {
+        msgEl.textContent = res.message;
+        msgEl.style.color = "green";
+        forgotForm.style.display = "none";
+        document.getElementById("resetForm").style.display = "block";
+      } else {
+        msgEl.textContent = res.message || "Failed to send OTP.";
+        msgEl.style.color = "crimson";
+      }
+    });
+  }
+
+  // ✅ Reset Password handler
+  if (resetForm) {
+    resetForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const otp = document.getElementById("otp").value.trim();
+      const newPassword = document.getElementById("newPassword").value.trim();
+      const msgEl = document.getElementById("resetMsg");
+
+      if (!otp || !newPassword) {
+        msgEl.textContent = "Please enter OTP and new password.";
+        msgEl.style.color = "crimson";
+        return;
+      }
+
+      msgEl.textContent = "Resetting password...";
+      msgEl.style.color = "black";
+
+      const res = await postJSON("/api/reset-password", { otp, newPassword });
+
+      if (res.success) {
+        msgEl.textContent = res.message;
+        msgEl.style.color = "green";
+        alert("Password reset successful. You can now login.");
+        window.location.href = "login.html";
+      } else {
+        msgEl.textContent = res.message || "Password reset failed.";
+        msgEl.style.color = "crimson";
       }
     });
   }
